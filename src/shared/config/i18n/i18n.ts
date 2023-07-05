@@ -13,14 +13,13 @@ i18n
         debug: __IS__DEV__,
         supportedLngs: ['ru', 'en'],
 
-    interpolation: {
-        escapeValue: false,
-    },
+        interpolation: {
+            escapeValue: false,
+        },
 
-    backend: {
-        loadPath: 'locales/{{lng}}/{{ns}}.json', // Путь для загрузки языковых ресурсов
-    },
-});
-
+        backend: {
+            loadPath: 'locales/{{lng}}/{{ns}}.json', // Путь для загрузки языковых ресурсов
+        },
+    });
 
 export default i18n;

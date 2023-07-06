@@ -4,10 +4,10 @@
 @import './variables/global';
 
 .app {
-    font: var(--font-m);
-    background: var(--bg-color);
-    color: var(--priamry-color);
     min-height: 100vh;
+    color: var(--priamry-color);
+    background: var(--bg-color);
+    font: var(--font-m);
 }
 
 .content-page {

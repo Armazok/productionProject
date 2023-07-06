@@ -1,7 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { IBuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] {

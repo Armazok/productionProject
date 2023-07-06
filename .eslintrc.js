@@ -49,9 +49,9 @@ module.exports = {
             'warn',
             {
                 ignoreComments: true,
-                ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
             },
         ],
+        'i18next/no-literal-string': ['error', { markupOnly: true }],
         // 'quote-props': 'off',
     },
     globals: {

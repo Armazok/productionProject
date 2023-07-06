@@ -5,6 +5,7 @@ const AboutPage = () => {
 
     return (
         <div>
+            ghbdtn
             {t('О cайте')}
         </div>
     );

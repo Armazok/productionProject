@@ -10,22 +10,20 @@ jobs:
     strategy:
       matrix:
         node-version: [ 17.x ]
-
-
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Staring Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
+      - name: Install modules
         run: npm install
-      - name: build production project
+      - name: Build production project
         run: npm run build:prod
-      - name: linting typescript
+      - name: Linting TypeScript
         run: npm run lint:ts
-      - name: linting css
+      - name: Linting CSS
         run: npm run lint:scss
-      - name: unit testing
+      - name: Unit Testing
         run: npm run test:unit

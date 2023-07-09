@@ -1,20 +1,20 @@
 declare module '*.scss' {
-    type IClassNames = Record<string, string>
+    interface IClassNames {
+        [className: string]: string
+    }
 
     const classNames: IClassNames;
-    export = classNames
+    export = classNames;
 }
 
-declare module '*.png'
-declare module '*.jpg'
-declare module '*.jpeg'
-declare module '*.svg'
-
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
 declare module '*.svg' {
-    import { FunctionComponent, SVGAttributes } from 'react';
+    import React from 'react';
 
-    const content: FunctionComponent<SVGAttributes<SVGElement>>;
-    export default content;
+    const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+    export default SVG;
 }
 
 declare const __IS__DEV__: boolean;

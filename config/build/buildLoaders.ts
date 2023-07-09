@@ -8,15 +8,6 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
-        use: [
-            {
-                loader: 'file-loader',
-            },
-        ],
-    };
-
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,
@@ -37,7 +28,7 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         },
     };
 
-    const cssLoaders = {
+    const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -56,17 +47,27 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
+    // Если не используем тайпскрипт - нужен babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
     };
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
+
     return [
-        cssLoaders,
+        fileLoader,
+        svgLoader,
         babelLoader,
         typescriptLoader,
-        svgLoader,
-        fileLoader,
+        cssLoader,
     ];
 }

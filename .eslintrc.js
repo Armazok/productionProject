@@ -11,6 +11,7 @@ module.exports = {
         'plugin:storybook/recommended',
     ],
     parser: '@typescript-eslint/parser',
+    ignorePatterns: ['.loki'],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,

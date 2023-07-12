@@ -3,11 +3,14 @@
 @import "./themes/light";
 @import "./variables/global";
 
-.app {
-    min-height: 100vh;
-    color: var(--inverted--primary-color);
+body {
     background: var(--bg-color);
     font: var(--font-m);
+}
+
+.app {
+    min-height: 100vh;
+    color: var(--primary-color);
 }
 
 .content-page {

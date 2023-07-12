@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Theme, useTheme } from 'app/providers/themeProvider';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import Light from '../../../shared/assets/icons/light.svg';
-import Dark from '../../../shared/assets/icons/dark.svg';
+import Dark from 'shared/assets/icons/dark.svg';
+import Light from 'shared/assets/icons/light.svg';
 
 interface IThemeSwitcher {
     className?: string
@@ -18,12 +18,8 @@ export const ThemeSwitcher = ({ className }: IThemeSwitcher) => {
             onClick={toggleTheme}
         >
             {theme === Theme.DARK
-                ? <Light />
-                : <Dark />}
-
-            {/* {theme === Theme.DARK */}
-            {/*    ? <Sprite idIcon="themeDark" /> */}
-            {/*    : <Sprite idIcon="themeLight" />} */}
+                ? <Dark />
+                : <Light />}
         </Button>
     );
 };

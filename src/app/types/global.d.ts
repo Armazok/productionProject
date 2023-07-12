@@ -10,15 +10,11 @@ declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.svg' {
-    import { FunctionComponent, SVGAttributes } from 'react';
 
-    const content: FunctionComponent<SVGAttributes<SVGElement>>;
-    export default content;
+    import { SVGProps, VFC } from 'react';
+
+    const SVG: VFC<SVGProps<SVGSVGElement>>;
+    export default SVG;
 }
-// declare module '*.svg' {
-//     const content: any;
-//     export default content;
-// }
 
 declare const __IS__DEV__: boolean;
-declare module 'svg-sprite-html-webpack'

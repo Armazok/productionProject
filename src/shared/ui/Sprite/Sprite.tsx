@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import SpriteSVG from '../../assets/icons/sprite.svg';
+import SpriteSVG from 'shared/assets/icons/sprite.svg';
 
 interface ILogo {
     idIcon: 'about' | 'main' | 'themeDark' | 'themeLight'

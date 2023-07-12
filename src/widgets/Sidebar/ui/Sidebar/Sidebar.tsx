@@ -6,9 +6,9 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/RouteConfig';
-import MainIcon from 'shared/assets/icons/main-20-20.svg';
-import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import cls from './Sidebar.module.scss';
+import Main from '../../../../shared/assets/icons/main-20-20.svg';
+import About from '../../../../shared/assets/icons/about-20-20.svg';
 
 interface ISidebar {
     className?: string
@@ -47,7 +47,7 @@ export const Sidebar = ({ className }: ISidebar) => {
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.item}
                 >
-                    <MainIcon className={cls.icon} />
+                    <Main className={cls.icon} />
                     <span className={cls.link}>
                         {t('Главная страница')}
                     </span>
@@ -58,7 +58,7 @@ export const Sidebar = ({ className }: ISidebar) => {
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.item}
                 >
-                    <AboutIcon className={cls.icon} />
+                    <About className={cls.icon} />
                     <span className={cls.link}>
                         {t('Не главная страница')}
                     </span>

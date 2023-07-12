@@ -6,15 +6,19 @@ declare module '*.scss' {
     const classNames: IClassNames;
     export = classNames;
 }
-
 declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.svg' {
-    import React from 'react';
+    import { FunctionComponent, SVGAttributes } from 'react';
 
-    const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
-    export default SVG;
+    const content: FunctionComponent<SVGAttributes<SVGElement>>;
+    export default content;
 }
+// declare module '*.svg' {
+//     const content: any;
+//     export default content;
+// }
 
 declare const __IS__DEV__: boolean;
+declare module 'svg-sprite-html-webpack'

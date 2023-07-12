@@ -41,6 +41,8 @@
     }
   },
   "include": [
+    "src",
+    "src/app/types/global.d.ts",
     "src/**/*.ts",
     "tests/**/*.ts",
     "./config/jest/setupTests.ts"

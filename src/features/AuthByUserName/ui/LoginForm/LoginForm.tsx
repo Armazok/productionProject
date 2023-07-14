@@ -11,7 +11,6 @@ interface ILoginForm {
 
 export const LoginForm = ({
     className,
-
 }: ILoginForm) => {
     const { t } = useTranslation();
     return (

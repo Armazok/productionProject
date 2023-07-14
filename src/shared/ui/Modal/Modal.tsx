@@ -67,6 +67,7 @@ export const Modal = (props: ModalProps) => {
             setIsMounted(true);
         }
     }, [isOpen]);
+
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,

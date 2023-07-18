@@ -6,7 +6,7 @@ interface IAboutPage {
     className?: string
 }
 
-export const AboutPage = ({ className }: IAboutPage) => {
+const AboutPage = ({ className }: IAboutPage) => {
     const { t } = useTranslation('about');
 
     return (
@@ -15,3 +15,5 @@ export const AboutPage = ({ className }: IAboutPage) => {
         </div>
     );
 };
+
+export default AboutPage;

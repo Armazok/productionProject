@@ -18,12 +18,12 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
             __IS__DEV__: JSON.stringify(isDev),
         }),
     ];
+    plugin.push(new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+    }));
 
     if (isDev) {
         plugin.push(new webpack.HotModuleReplacementPlugin());
-        plugin.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }));
     }
 
     return plugin;

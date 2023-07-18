@@ -6,7 +6,7 @@ interface INotFoundPage {
     className?: string
 }
 
-export const NotFoundPage = ({ className }: INotFoundPage) => {
+const NotFoundPage = ({ className }: INotFoundPage) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.NotFoundPage, {}, [className])}>
@@ -14,3 +14,5 @@ export const NotFoundPage = ({ className }: INotFoundPage) => {
         </div>
     );
 };
+
+export default NotFoundPage;

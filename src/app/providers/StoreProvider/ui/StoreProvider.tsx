@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { DeepPartial } from '@reduxjs/toolkit';
-import { createReduxStore, IStateSchema } from 'app/providers/storeProvider';
+import { createReduxStore, IStateSchema } from 'app/providers/StoreProvider';
 import { Provider } from 'react-redux';
 
 interface StoreProviderProps {

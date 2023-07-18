@@ -11,7 +11,7 @@ export const LangSwitcher = ({ className, short }: ILangSwitcher) => {
     const { t, i18n } = useTranslation();
 
     const toggleLang = async () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+        await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
     return (

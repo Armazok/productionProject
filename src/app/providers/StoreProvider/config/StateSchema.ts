@@ -1,5 +1,5 @@
 import { ICounterSchema } from 'entiti/Counter';
-import { IUserSchema } from 'entiti/User';
+import { IUserSchema } from 'entiti/user';
 import { ILoginSchema } from 'features/AuthByUserName';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,

@@ -4,7 +4,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entiti/User';
+import { getUserAuthData, userActions } from 'entiti/user';
 import cls from './Navbar.module.scss';
 
 interface INavbar {

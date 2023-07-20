@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
 interface IMainPage {
     className?: string
 }
 
-const MainPage = ({ className }: IMainPage) => {
+const MainPage = memo(({ className }: IMainPage) => {
     const { t } = useTranslation('main');
 
     return (
@@ -12,6 +13,6 @@ const MainPage = ({ className }: IMainPage) => {
             {t('Главная страница')}
         </div>
     );
-};
+});
 
 export default MainPage;

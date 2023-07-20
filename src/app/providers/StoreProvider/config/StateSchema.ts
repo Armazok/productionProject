@@ -1,9 +1,10 @@
 import { ICounterSchema } from 'entiti/Counter';
-import { IUserSchema } from 'entiti/user';
+import { IUserSchema } from 'entiti/User';
 import { ILoginSchema } from 'features/AuthByUserName';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { IProfileSchema } from 'entiti/Profile';
 
 export interface IStateSchema {
     counter: ICounterSchema
@@ -11,6 +12,7 @@ export interface IStateSchema {
 
     // Ассинхронные редюсеры
     loginForm?: ILoginSchema
+    profile?: IProfileSchema
 }
 
 export type StateSchemaKey = keyof IStateSchema

@@ -3,12 +3,13 @@ import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import Dark from 'shared/assets/icons/dark.svg';
 import Light from 'shared/assets/icons/light.svg';
+import { memo } from 'react';
 
 interface IThemeSwitcher {
     className?: string
 }
 
-export const ThemeSwitcher = ({ className }: IThemeSwitcher) => {
+export const ThemeSwitcher = memo(({ className }: IThemeSwitcher) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -22,4 +23,4 @@ export const ThemeSwitcher = ({ className }: IThemeSwitcher) => {
                 : <Light />}
         </Button>
     );
-};
+});

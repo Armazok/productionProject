@@ -2,10 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
@@ -16,6 +17,7 @@ import cls from './LoginForm.module.scss';
 
 export interface ILoginForm {
     className?: string
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -24,6 +26,7 @@ const initialReducers: ReducersList = {
 
 const LoginForm = memo(({
     className,
+    onSuccess,
 }: ILoginForm) => {
     const userName = useSelector(getLoginUserName);
     const password = useSelector(getLoginPassword);
@@ -31,7 +34,7 @@ const LoginForm = memo(({
     const error = useSelector(getLoginError);
 
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onChangeUserName = useCallback((value: string) => {
         dispatch(loginActions.setUserName(value));
@@ -41,9 +44,12 @@ const LoginForm = memo(({
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUserName({ userName, password }));
-    }, [dispatch, userName, password]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUserName({ userName, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, userName, password, onSuccess]);
 
     return (
         <DynamicModuleLoader

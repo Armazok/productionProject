@@ -1,6 +1,6 @@
 import { AppDispatch, createReduxStore } from './config/store';
 import { StoreProvider } from './ui/StoreProvider';
-import type { IReduxStoreWithManager, IStateSchema } from './config/StateSchema';
+import type { IReduxStoreWithManager, IStateSchema, IThunkConfig } from './config/StateSchema';
 
 export {
     StoreProvider,
@@ -8,4 +8,5 @@ export {
     IStateSchema,
     IReduxStoreWithManager,
     AppDispatch,
+    IThunkConfig,
 };

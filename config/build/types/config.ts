@@ -6,14 +6,17 @@ export interface IBuildPath {
     html: string
     src: string
 }
+
+export interface IBuildEnv {
+    mode: BuildMode
+    port: number
+    apiUrl: string
+}
+
 export interface IBuildOptions {
     mode: BuildMode
     paths: IBuildPath
     isDev: boolean
     port: number
-}
-
-export interface IBuildEnv {
-    mode: BuildMode
-    port: number
+    apiUrl: string
 }

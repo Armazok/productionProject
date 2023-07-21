@@ -11,11 +11,11 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof MainPage>;
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 export const Light = Template.bind({});
-Light.arg = {};
+Light.args = {};
 Light.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.arg = {};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

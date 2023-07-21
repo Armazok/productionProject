@@ -1,11 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 
-interface IMainPage {
-    className?: string
-}
-
-const MainPage = memo(({ className }: IMainPage) => {
+const MainPage = memo(() => {
     const { t } = useTranslation('main');
 
     return (

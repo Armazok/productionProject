@@ -13,8 +13,8 @@ export default {
 
 const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />;
 export const Light = Template.bind({});
-Light.arg = {};
+Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.arg = {};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

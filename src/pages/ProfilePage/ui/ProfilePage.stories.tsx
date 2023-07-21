@@ -13,9 +13,9 @@ export default {
 } as ComponentMeta<typeof ProfilePage>;
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 export const Light = Template.bind({});
-Light.arg = {};
+Light.args = {};
 Light.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
-Dark.arg = {};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

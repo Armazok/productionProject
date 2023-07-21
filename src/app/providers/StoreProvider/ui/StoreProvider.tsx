@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import { createReduxStore, IStateSchema } from 'app/providers/StoreProvider';
 import { Provider } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

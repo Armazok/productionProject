@@ -4,8 +4,8 @@ import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 import { IThunkConfig } from 'app/providers/StoreProvider';
 
 interface ILoginByUserName {
-    userName: string
-    password: string
+    userName: string | undefined
+    password: string | undefined
 }
 
 export const loginByUserName = createAsyncThunk<
@@ -14,13 +14,13 @@ export const loginByUserName = createAsyncThunk<
     IThunkConfig<string>>(
         'login/loginByUserName',
         async (
-            { userName, password },
-            { rejectWithValue, dispatch, extra },
+            authData,
+            thunkApi,
         ) => {
+            const { extra, dispatch, rejectWithValue } = thunkApi;
+
             try {
-                const response = await extra.api.post('/login', {
-                    userName, password,
-                });
+                const response = await extra.api.post<IUser>('/login', authData);
 
                 if (!response.data) {
                     throw new Error();

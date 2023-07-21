@@ -26,9 +26,9 @@
     }
   ],
   "profile": {
-    "first": "Klaus",
-    "lastname": "Borza",
-    "age": 22,
+    "firstName": "Klaus",
+    "lastName": "Borza",
+    "age": 24,
     "currency": "RUB",
     "country": "Kazakhstan",
     "city": "Oral",

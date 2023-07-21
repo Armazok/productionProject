@@ -1,8 +1,8 @@
 import { Country, Currency } from 'shared/const/common';
 
 export interface IProfile {
-    first: string,
-    lastname: string,
+    firstName: string,
+    lastName: string,
     age: number,
     currency: Currency,
     country: Country,

@@ -1,7 +1,7 @@
 import { IStateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { Story } from '@storybook/react';
 import { loginReducers } from 'features/AuthByUserName/model/slice/loginSlice';
-import { profileReducers } from 'entiti/Profile';
+import { profileReducers } from 'entity/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 
 const defaultAsyncReducer: ReducersList = {

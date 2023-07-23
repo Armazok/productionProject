@@ -1,10 +1,10 @@
-import { ICounterSchema } from 'entiti/Counter';
-import { IUserSchema } from 'entiti/User';
+import { ICounterSchema } from 'entity/Counter';
+import { IUserSchema } from 'entity/User';
 import { ILoginSchema } from 'features/AuthByUserName';
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { IProfileSchema } from 'entiti/Profile';
+import { IProfileSchema } from 'entity/Profile';
 import { AxiosInstance } from 'axios';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router/dist/lib/context';
@@ -39,4 +39,5 @@ export interface IThunkExtraArg {
 export interface IThunkConfig<T> {
     rejectValue: T
     extra: IThunkExtraArg
+    state: IStateSchema
 }

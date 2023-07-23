@@ -2,8 +2,8 @@ import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { IStateSchema, IThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
-import { counterReducer } from 'entiti/Counter';
-import { userReducers } from 'entiti/User';
+import { counterReducer } from 'entity/Counter';
+import { userReducers } from 'entity/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
 import { To } from '@remix-run/router';

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IUser, userActions } from 'entiti/User';
+import { IUser, userActions } from 'entity/User';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 import { IThunkConfig } from 'app/providers/StoreProvider';
 

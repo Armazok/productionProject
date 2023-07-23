@@ -7,11 +7,18 @@ export enum TextTheme {
     ERROR = 'error',
 }
 
+export enum TextAlign {
+    RIGHT = 'right',
+    LEFT = 'left',
+    CENTER = 'center',
+}
+
 interface IText {
     className?: string
     title?: string
     text?: string
     theme?: TextTheme
+    align?: TextAlign
 }
 
 export const Text = memo(({
@@ -19,9 +26,11 @@ export const Text = memo(({
     text,
     title,
     theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
 }: IText) => {
     const mods = {
         [cls[theme]]: true,
+        [cls[align]]: true,
     };
     return (
         <div className={classNames(cls.Text, mods, [className])}>

@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CountrySelect } from 'entity/Country/ui/CountrySelect/CountrySelect';
 
 export default {
-    title: 'entities/CounterSelect',
+    title: 'entity/CounterSelect',
     component: CountrySelect,
     argTypes: {
         backgroundColor: { control: 'color' },

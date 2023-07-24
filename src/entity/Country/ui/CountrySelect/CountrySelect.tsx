@@ -17,6 +17,7 @@ const options = [
     { value: Country.RUSSIA, content: Country.RUSSIA },
     { value: Country.UKRAINE, content: Country.UKRAINE },
     { value: Country.KAZAKHSTAN, content: Country.KAZAKHSTAN },
+    { value: Country.USA, content: Country.USA },
 ];
 
 export const CountrySelect = memo(({

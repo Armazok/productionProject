@@ -3,7 +3,6 @@ import { memo } from 'react';
 
 const AboutPage = memo(() => {
     const { t } = useTranslation('about');
-
     return (
         <div>
             {t('О cайте')}

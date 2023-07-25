@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
-    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    ChangeEvent, InputHTMLAttributes, memo, useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './Input.module.scss';
 
@@ -37,18 +37,31 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    // const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    //     onChange?.(e.target.value);
+    //     setCaretPosition(e.target.value.length);
+    // };
+    //
+    // const onBlur = () => {
+    //     setIsFocused(false);
+    // };
+    //
+    // const onFocus = () => {
+    //     setIsFocused(true);
+    // };
+
+    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
-    };
+    }, [onChange]);
 
-    const onBlur = () => {
+    const onBlur = useCallback(() => {
         setIsFocused(false);
-    };
+    }, []);
 
-    const onFocus = () => {
+    const onFocus = useCallback(() => {
         setIsFocused(true);
-    };
+    }, []);
 
     const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
@@ -73,9 +86,9 @@ export const Input = memo((props: InputProps) => {
                     value={value}
                     onChange={onChangeHandler}
                     className={cls.input}
-                    // onFocus={onFocus}
-                    // onBlur={onBlur}
-                    // onSelect={onSelect}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    onSelect={onSelect}
                     {...otherProps}
                 />
                 {isCaretVisible && (

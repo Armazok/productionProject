@@ -2,7 +2,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { articleDetailsSliceReducers } from 'entity/Article/model/slice/articleDetailsSlice';
+import { articleDetailsReducers } from 'entity/Article/model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 'entity/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
@@ -29,7 +29,7 @@ interface IArticleDetails {
 }
 
 const reducers: ReducersList = {
-    articleDetails: articleDetailsSliceReducers,
+    articleDetails: articleDetailsReducers,
 };
 
 export const ArticleDetails = memo(({
@@ -46,11 +46,11 @@ export const ArticleDetails = memo(({
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockTypeEnum.CODE:
-            return <ArticleBlockComponentCode className={cls.block} block={block} />;
+            return <ArticleBlockComponentCode key={block.id} className={cls.block} block={block} />;
         case ArticleBlockTypeEnum.IMAGE:
-            return <ArticleBlockComponentImage className={cls.block} block={block} />;
+            return <ArticleBlockComponentImage key={block.id} className={cls.block} block={block} />;
         case ArticleBlockTypeEnum.TEXT:
-            return <ArticleBlockComponentText className={cls.block} block={block} />;
+            return <ArticleBlockComponentText key={block.id} className={cls.block} block={block} />;
         default:
             return null;
         }
@@ -59,7 +59,9 @@ export const ArticleDetails = memo(({
     const mods: Mods = {};
 
     useEffect(() => {
-        dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
     }, [id, dispatch]);
 
     let content;

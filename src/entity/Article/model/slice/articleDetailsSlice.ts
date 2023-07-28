@@ -30,5 +30,5 @@ export const articleDetailsSlice = createSlice({
     },
 });
 
-export const { actions: articleDetailsSliceActions } = articleDetailsSlice;
-export const { reducer: articleDetailsSliceReducers } = articleDetailsSlice;
+export const { actions: articleDetailsActions } = articleDetailsSlice;
+export const { reducer: articleDetailsReducers } = articleDetailsSlice;

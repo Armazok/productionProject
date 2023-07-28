@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-    children: 'export default {\n'
+    text: 'export default {\n'
         + '    title: \'shared/Code\',\n'
         + '    component: Code,\n'
         + '    argTypes: {\n'
@@ -24,5 +24,4 @@ Normal.args = {
         + '\n'
         + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;\n'
         + 'export const Normal = Template.bind({});',
-
 };

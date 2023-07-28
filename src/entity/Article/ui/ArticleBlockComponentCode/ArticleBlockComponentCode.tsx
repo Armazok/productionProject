@@ -18,9 +18,7 @@ export const ArticleBlockComponentCode = memo(({
     const mods: Mods = {};
     return (
         <div className={classNames(cls.ArticleBlockComponentCode, mods, [className])}>
-            <Code>
-                {block.code}
-            </Code>
+            <Code text={block.code} />
         </div>
     );
 });

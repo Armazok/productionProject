@@ -6,8 +6,12 @@ import { articleDetailsSliceReducers } from 'entity/Article/model/slice/articleD
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 'entity/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -45,13 +49,13 @@ export const ArticleDetails = memo(({
     let content;
     if (isLoading) {
         content = (
-            <div>
+            <>
                 <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
                 <Skeleton className={cls.title} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
-            </div>
+            </>
         );
     } else if (error) {
         content = (
@@ -62,8 +66,29 @@ export const ArticleDetails = memo(({
         );
     } else {
         content = (
-            // eslint-disable-next-line i18next/no-literal-string
-            <div>Article Details</div>
+            <>
+                <div className={cls.avatarWrapper}>
+                    <Avatar
+                        size={200}
+                        src={data?.img}
+                        className={cls.avatar}
+                    />
+                </div>
+                <Text
+                    className={cls.title}
+                    title={data?.title}
+                    text={data?.subtitle}
+                    size={TextSize.L}
+                />
+                <div className={cls.articleInfo}>
+                    <Icon Svg={EyeIcon} className={cls.icon} />
+                    <Text text={String(data?.views)} />
+                </div>
+                <div className={cls.articleInfo}>
+                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                    <Text text={data?.createdAt} />
+                </div>
+            </>
         );
     }
 

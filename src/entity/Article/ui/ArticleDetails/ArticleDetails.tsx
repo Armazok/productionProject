@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { articleDetailsSliceReducers } from 'entity/Article/model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -12,6 +12,10 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlockComponentCode } from 'entity/Article/ui/ArticleBlockComponentCode/ArticleBlockComponentCode';
+import { ArticleBlockComponentImage } from 'entity/Article/ui/ArticleBlockComponentImage/ArticleBlockComponentImage';
+import { ArticleBlockComponentText } from 'entity/Article/ui/ArticleBlockComponentText/ArticleBlockComponentText';
+import { ArticleBlock, ArticleBlockTypeEnum } from '../../model/types/article';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -37,8 +41,20 @@ export const ArticleDetails = memo(({
 
     const data = useSelector(getArticleDetailsData);
     const isLoading = useSelector(getArticleDetailsIsLoading);
-    // const isLoading = true;
     const error = useSelector(getArticleDetailsError);
+
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockTypeEnum.CODE:
+            return <ArticleBlockComponentCode className={cls.block} block={block} />;
+        case ArticleBlockTypeEnum.IMAGE:
+            return <ArticleBlockComponentImage className={cls.block} block={block} />;
+        case ArticleBlockTypeEnum.TEXT:
+            return <ArticleBlockComponentText className={cls.block} block={block} />;
+        default:
+            return null;
+        }
+    }, []);
 
     const mods: Mods = {};
 
@@ -88,6 +104,7 @@ export const ArticleDetails = memo(({
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={data?.createdAt} />
                 </div>
+                {data?.blocks.map(renderBlock)}
             </>
         );
     }

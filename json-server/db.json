@@ -109,13 +109,15 @@
       "id": "1",
       "userName": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
     },
     {
       "id": "2",
       "userName": "user",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
     }
   ],
   "profile": {
@@ -125,7 +127,7 @@
     "currency": "USD",
     "country": "U.S.A",
     "city": "California",
-    "userName": "Armazok",
+    "userName": "admin",
     "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
   }
 }

@@ -57,6 +57,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'no-debugger': 'warn',
+        'quote-props': 'warn',
     },
     globals: {
         __IS__DEV__: true,

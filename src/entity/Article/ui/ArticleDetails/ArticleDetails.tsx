@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { articleDetailsReducers } from 'entity/Article/model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -15,6 +15,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { ArticleBlockComponentCode } from 'entity/Article/ui/ArticleBlockComponentCode/ArticleBlockComponentCode';
 import { ArticleBlockComponentImage } from 'entity/Article/ui/ArticleBlockComponentImage/ArticleBlockComponentImage';
 import { ArticleBlockComponentText } from 'entity/Article/ui/ArticleBlockComponentText/ArticleBlockComponentText';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleBlock, ArticleBlockTypeEnum } from '../../model/types/article';
 import {
     getArticleDetailsData,
@@ -57,12 +58,9 @@ export const ArticleDetails = memo(({
     }, []);
 
     const mods: Mods = {};
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [id, dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     let content;
     if (isLoading) {

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import {
     fetchProfileData,
@@ -19,6 +19,8 @@ import { getProfileFormData } from 'entity/Profile/model/selectors/getProflleFor
 import { Currency } from 'entity/Currency';
 import { Country } from 'entity/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface IProfilePage {
@@ -34,7 +36,7 @@ const ProfilePage = memo(({
 }: IProfilePage) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
-
+    const { id } = useParams<{ id: string }>();
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
     const formData = useSelector(getProfileFormData);
@@ -48,11 +50,11 @@ const ProfilePage = memo(({
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((firstName?: string | '') => {
         dispatch(profileActions.updateProfile({ firstName }));
@@ -89,7 +91,6 @@ const ProfilePage = memo(({
     return (
         <DynamicModuleLoader
             reducers={reducers}
-            removeAfterUnmount
         >
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />

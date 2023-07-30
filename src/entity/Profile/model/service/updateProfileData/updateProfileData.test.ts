@@ -11,6 +11,7 @@ const data = {
     firstName: 'Borza',
     currency: Currency.USD,
     city: 'California',
+    id: '1',
 };
 
 describe('updateProfileData.ts', () => {

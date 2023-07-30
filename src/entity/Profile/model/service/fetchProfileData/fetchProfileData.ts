@@ -4,12 +4,12 @@ import { IProfile } from 'entity/Profile';
 
 export const fetchProfileData = createAsyncThunk<
     IProfile,
-    void,
+    string,
     IThunkConfig<string>>(
         'profile/fetchProfileData',
-        async (_, { rejectWithValue, extra }) => {
+        async (profileId, { rejectWithValue, extra }) => {
             try {
-                const result = await extra.api.get<IProfile>('/profile');
+                const result = await extra.api.get<IProfile>(`/profile/${profileId}`);
 
                 if (!result.data) {
                     throw new Error();

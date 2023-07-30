@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет",
+      "id": "vDl52ge"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "привет мир",
+      "id": "Id2dWx8"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "я здесь один ",
+      "id": "1H7th7o"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ну и что",
+      "id": "Lb5lT1g"
     }
   ],
   "users": [
@@ -117,17 +141,31 @@
       "userName": "user",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
+      "avatar": "https://w7.pngwing.com/pngs/552/807/png-transparent-pepe-frog-illustration-gif-imgur-tenor-know-your-meme-twitch-emotes-vertebrate-meme-fictional-character.png"
     }
   ],
-  "profile": {
-    "firstName": "Nikolay",
-    "lastName": "Borsin",
-    "age": 24,
-    "currency": "USD",
-    "country": "U.S.A",
-    "city": "California",
-    "userName": "admin",
-    "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Nikola",
+      "lastName": "Borsin",
+      "age": 24,
+      "currency": "USD",
+      "country": "U.S.A",
+      "city": "California",
+      "userName": "Armazok",
+      "avatar": "https://media.gq-magazine.co.uk/photos/6362687ed85a7b93f28a0904/3:2/w_1011,h_674,c_limit/Sigma-grindset-patrick-bateman.jpeg"
+    },
+    {
+      "id": "2",
+      "firstName": "Klaus",
+      "lastName": "Borza",
+      "age": 24,
+      "currency": "USD",
+      "country": "U.S.A",
+      "city": "California",
+      "userName": "admin",
+      "avatar": "https://w7.pngwing.com/pngs/552/807/png-transparent-pepe-frog-illustration-gif-imgur-tenor-know-your-meme-twitch-emotes-vertebrate-meme-fictional-character.png"
+    }
+  ]
 }

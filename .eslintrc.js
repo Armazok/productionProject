@@ -49,7 +49,7 @@ module.exports = {
                 ignoreAttribute: ['data-testid', 'to', 'name'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['warn', { ignoreComments: true, code: 120 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -58,6 +58,7 @@ module.exports = {
         'no-undef': 'off',
         'no-debugger': 'warn',
         'quote-props': 'warn',
+        'react/no-array-index-key': 'warn',
     },
     globals: {
         __IS__DEV__: true,

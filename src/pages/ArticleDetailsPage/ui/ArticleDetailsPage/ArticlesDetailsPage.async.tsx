@@ -6,5 +6,5 @@ export const ArticleDetailsPageAsync = lazy(() => new Promise((res) => setTimeou
         // @ts-ignore
         // eslint-disable-next-line implicit-arrow-linebreak
         res(import('./ArticleDetailsPage')),
-    1500,
+    400,
 )));

@@ -21,6 +21,7 @@ import { Country } from 'entity/Country/model/types/country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface IProfilePage {
@@ -42,6 +43,7 @@ const ProfilePage = memo(({
     const formData = useSelector(getProfileFormData);
     const readonly = useSelector(getProfileReadOnly);
     const validateErrors = useSelector(getProfileValidateError);
+
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранение'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
@@ -92,7 +94,7 @@ const ProfilePage = memo(({
         <DynamicModuleLoader
             reducers={reducers}
         >
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -115,7 +117,7 @@ const ProfilePage = memo(({
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

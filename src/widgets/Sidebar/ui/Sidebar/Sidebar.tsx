@@ -20,7 +20,7 @@ export const Sidebar = memo(({ className }: ISidebar) => {
     const sideBarItemsList = useSelector(getSidebarItems);
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
             className={
                 classNames(
@@ -54,6 +54,6 @@ export const Sidebar = memo(({ className }: ISidebar) => {
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} className={cls.lang} />
             </div>
-        </div>
+        </menu>
     );
 });

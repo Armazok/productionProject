@@ -28,14 +28,6 @@ export const ArticleList = memo(({
 }: IArticleList) => {
     const mods: Mods = {};
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, mods, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     const renderArticle = (article: IArticle) => (
         <ArticleListItem
             className={cls.card}
@@ -50,6 +42,7 @@ export const ArticleList = memo(({
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

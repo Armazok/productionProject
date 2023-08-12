@@ -16,6 +16,7 @@ import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/sele
 import { AddCommentForm } from 'features/addCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/RouteConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
@@ -54,15 +55,15 @@ const ArticleDetailsPage = ({
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, mods, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetailsPage, mods, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, mods, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onClickToList}>{t('Назад к списку')}</Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
@@ -73,7 +74,7 @@ const ArticleDetailsPage = ({
                     isLoading={commentIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
